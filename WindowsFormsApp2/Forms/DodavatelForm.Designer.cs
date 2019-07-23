@@ -38,8 +38,20 @@
             this.labelEmail = new System.Windows.Forms.Label();
             this.buttonAddToDatabase = new System.Windows.Forms.Button();
             this.dodavatelsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.agoraSystemDataSet2 = new WindowsFormsApp2.AgoraSystemDataSet2();
+            this.dodavatelsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.dodavatelsTableAdapter = new WindowsFormsApp2.AgoraSystemDataSet2TableAdapters.DodavatelsTableAdapter();
+            this.idDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phoneNumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.emailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeleteProduct = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dodavatelsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agoraSystemDataSet2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dodavatelsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -129,11 +141,77 @@
             // 
             this.dodavatelsBindingSource.DataMember = "Dodavatels";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idDataGridViewTextBoxColumn,
+            this.nameDataGridViewTextBoxColumn,
+            this.phoneNumberDataGridViewTextBoxColumn,
+            this.emailDataGridViewTextBoxColumn});
+            this.dataGridView1.DataSource = this.dodavatelsBindingSource1;
+            this.dataGridView1.Location = new System.Drawing.Point(259, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(445, 150);
+            this.dataGridView1.TabIndex = 3;
+            // 
+            // agoraSystemDataSet2
+            // 
+            this.agoraSystemDataSet2.DataSetName = "AgoraSystemDataSet2";
+            this.agoraSystemDataSet2.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // dodavatelsBindingSource1
+            // 
+            this.dodavatelsBindingSource1.DataMember = "Dodavatels";
+            this.dodavatelsBindingSource1.DataSource = this.agoraSystemDataSet2;
+            // 
+            // dodavatelsTableAdapter
+            // 
+            this.dodavatelsTableAdapter.ClearBeforeFill = true;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            this.idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            this.idDataGridViewTextBoxColumn.HeaderText = "Id";
+            this.idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            this.idDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            // 
+            // phoneNumberDataGridViewTextBoxColumn
+            // 
+            this.phoneNumberDataGridViewTextBoxColumn.DataPropertyName = "PhoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.HeaderText = "PhoneNumber";
+            this.phoneNumberDataGridViewTextBoxColumn.Name = "phoneNumberDataGridViewTextBoxColumn";
+            // 
+            // emailDataGridViewTextBoxColumn
+            // 
+            this.emailDataGridViewTextBoxColumn.DataPropertyName = "Email";
+            this.emailDataGridViewTextBoxColumn.HeaderText = "Email";
+            this.emailDataGridViewTextBoxColumn.Name = "emailDataGridViewTextBoxColumn";
+            // 
+            // DeleteProduct
+            // 
+            this.DeleteProduct.Location = new System.Drawing.Point(629, 177);
+            this.DeleteProduct.Name = "DeleteProduct";
+            this.DeleteProduct.Size = new System.Drawing.Size(75, 23);
+            this.DeleteProduct.TabIndex = 4;
+            this.DeleteProduct.Text = "Delete";
+            this.DeleteProduct.UseVisualStyleBackColor = true;
+            this.DeleteProduct.Click += new System.EventHandler(this.DeleteProduct_Click);
+            // 
             // DodavatelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(246, 268);
+            this.ClientSize = new System.Drawing.Size(779, 228);
+            this.Controls.Add(this.DeleteProduct);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.buttonAddToDatabase);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "DodavatelForm";
@@ -142,6 +220,9 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dodavatelsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agoraSystemDataSet2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dodavatelsBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -156,6 +237,15 @@
         private System.Windows.Forms.TextBox textBoxEmail;
         private System.Windows.Forms.Label labelEmail;
         private System.Windows.Forms.BindingSource dodavatelsBindingSource;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private AgoraSystemDataSet2 agoraSystemDataSet2;
+        private System.Windows.Forms.BindingSource dodavatelsBindingSource1;
+        private AgoraSystemDataSet2TableAdapters.DodavatelsTableAdapter dodavatelsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn phoneNumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn emailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button DeleteProduct;
     }
 }
 

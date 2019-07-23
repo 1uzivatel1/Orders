@@ -69,20 +69,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201907180709160_MN.cs" />
-    <Compile Include="Migrations\201907180709160_MN.Designer.cs">
-      <DependentUpon>201907180709160_MN.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201907180714432_MN1.cs" />
-    <Compile Include="Migrations\201907180714432_MN1.Designer.cs">
-      <DependentUpon>201907180714432_MN1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="MNDbTestContextDataSet.Designer.cs">
+    <Compile Include="AgoraSystemDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>MNDbTestContextDataSet.xsd</DependentUpon>
+      <DependentUpon>AgoraSystemDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="AgoraSystemDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgoraSystemDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="AgoraSystemDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AgoraSystemDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907232153125_xxx.cs" />
+    <Compile Include="Migrations\201907232153125_xxx.Designer.cs">
+      <DependentUpon>201907232153125_xxx.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201907232235545_xxx1.cs" />
+    <Compile Include="Migrations\201907232235545_xxx1.Designer.cs">
+      <DependentUpon>201907232235545_xxx1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\DbTestContext.cs" />
     <Compile Include="Models\Dodavatel.cs" />
     <Compile Include="Forms\DodavatelForm.cs">
@@ -117,11 +127,11 @@
     <EmbeddedResource Include="Forms\ProductForm.resx">
       <DependentUpon>ProductForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907180709160_MN.resx">
-      <DependentUpon>201907180709160_MN.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907232153125_xxx.resx">
+      <DependentUpon>201907232153125_xxx.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201907180714432_MN1.resx">
-      <DependentUpon>201907180714432_MN1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201907232235545_xxx1.resx">
+      <DependentUpon>201907232235545_xxx1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -132,21 +142,40 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="MNDbTestContextDataSet.xsc">
-      <DependentUpon>MNDbTestContextDataSet.xsd</DependentUpon>
+    <None Include="AgoraSystemDataSet.xsc">
+      <DependentUpon>AgoraSystemDataSet.xsd</DependentUpon>
     </None>
-    <None Include="MNDbTestContextDataSet.xsd">
+    <None Include="AgoraSystemDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>MNDbTestContextDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>AgoraSystemDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="MNDbTestContextDataSet.xss">
-      <DependentUpon>MNDbTestContextDataSet.xsd</DependentUpon>
+    <None Include="AgoraSystemDataSet.xss">
+      <DependentUpon>AgoraSystemDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="AgoraSystemDataSet1.xsc">
+      <DependentUpon>AgoraSystemDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="AgoraSystemDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AgoraSystemDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AgoraSystemDataSet1.xss">
+      <DependentUpon>AgoraSystemDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="AgoraSystemDataSet2.xsc">
+      <DependentUpon>AgoraSystemDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="AgoraSystemDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>AgoraSystemDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="AgoraSystemDataSet2.xss">
+      <DependentUpon>AgoraSystemDataSet2.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\WindowsFormsApp2.DataOrderItemTableAdapters.OrderItemsTableAdapter.datasource" />
-    <None Include="Properties\DataSources\WindowsFormsApp2.DataOrderItemTableAdapters.TableAdapterManager+UpdateOrderOption.datasource" />
-    <None Include="Properties\DataSources\WindowsFormsApp2.DataOrderItemTableAdapters.TableAdapterManager.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -162,6 +191,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

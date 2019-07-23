@@ -18,6 +18,7 @@ namespace WindowsFormsApp2
         [Required]
         public double Prize { get; set; }
         public virtual Dodavatel Dodavatel { get; set; }
-       
+
+
     }
 }

@@ -34,25 +34,24 @@
             this.textBoxProductName = new System.Windows.Forms.TextBox();
             this.labelDodavatel = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.buttonDeleteDodavatel = new System.Windows.Forms.Button();
             this.buttonNewDodavatel = new System.Windows.Forms.Button();
             this.textBoxProductPrize = new System.Windows.Forms.TextBox();
             this.labelName = new System.Windows.Forms.Label();
             this.labelPrize = new System.Windows.Forms.Label();
             this.dataGridViewProduct = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.agoraSystemDataSet = new WindowsFormsApp2.AgoraSystemDataSet();
             this.buttonDeleteProduct = new System.Windows.Forms.Button();
             this.buttonNewProduct = new System.Windows.Forms.Button();
-            this.mNDbTestContextDataSet = new WindowsFormsApp2.MNDbTestContextDataSet();
-            this.productsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.productsTableAdapter = new WindowsFormsApp2.MNDbTestContextDataSetTableAdapters.ProductsTableAdapter();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.productsTableAdapter = new WindowsFormsApp2.AgoraSystemDataSetTableAdapters.ProductsTableAdapter();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mNDbTestContextDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agoraSystemDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // comboBoxPDodavatel
@@ -100,7 +99,6 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 45.79124F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.26263F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.28283F));
-            this.tableLayoutPanel1.Controls.Add(this.buttonDeleteDodavatel, 2, 1);
             this.tableLayoutPanel1.Controls.Add(this.buttonNewDodavatel, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.textBoxProductPrize, 0, 5);
             this.tableLayoutPanel1.Controls.Add(this.labelName, 0, 2);
@@ -119,16 +117,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(297, 169);
             this.tableLayoutPanel1.TabIndex = 4;
-            // 
-            // buttonDeleteDodavatel
-            // 
-            this.buttonDeleteDodavatel.Location = new System.Drawing.Point(215, 31);
-            this.buttonDeleteDodavatel.Name = "buttonDeleteDodavatel";
-            this.buttonDeleteDodavatel.Size = new System.Drawing.Size(75, 22);
-            this.buttonDeleteDodavatel.TabIndex = 5;
-            this.buttonDeleteDodavatel.Text = "Delete";
-            this.buttonDeleteDodavatel.UseVisualStyleBackColor = true;
-            this.buttonDeleteDodavatel.Click += new System.EventHandler(this.buttonDeleteDodavatel_Click);
             // 
             // buttonNewDodavatel
             // 
@@ -175,15 +163,50 @@
             this.dataGridViewProduct.AutoGenerateColumns = false;
             this.dataGridViewProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProduct.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8});
             this.dataGridViewProduct.DataSource = this.productsBindingSource;
             this.dataGridViewProduct.Location = new System.Drawing.Point(362, 52);
             this.dataGridViewProduct.Name = "dataGridViewProduct";
             this.dataGridViewProduct.Size = new System.Drawing.Size(436, 169);
             this.dataGridViewProduct.TabIndex = 5;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Name";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Prize";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Prize";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "Dodavatel_Id";
+            this.dataGridViewTextBoxColumn8.HeaderText = "Dodavatel_Id";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            // 
+            // productsBindingSource
+            // 
+            this.productsBindingSource.DataMember = "Products";
+            this.productsBindingSource.DataSource = this.agoraSystemDataSet;
+            // 
+            // agoraSystemDataSet
+            // 
+            this.agoraSystemDataSet.DataSetName = "AgoraSystemDataSet";
+            this.agoraSystemDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // buttonDeleteProduct
             // 
@@ -205,44 +228,9 @@
             this.buttonNewProduct.UseVisualStyleBackColor = true;
             this.buttonNewProduct.Click += new System.EventHandler(this.buttonNewProduct_Click);
             // 
-            // mNDbTestContextDataSet
-            // 
-            this.mNDbTestContextDataSet.DataSetName = "MNDbTestContextDataSet";
-            this.mNDbTestContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // productsBindingSource
-            // 
-            this.productsBindingSource.DataMember = "Products";
-            this.productsBindingSource.DataSource = this.mNDbTestContextDataSet;
-            // 
             // productsTableAdapter
             // 
             this.productsTableAdapter.ClearBeforeFill = true;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
-            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.DataPropertyName = "Name";
-            this.dataGridViewTextBoxColumn2.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "Prize";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Prize";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Dodavatel_Id";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Dodavatel_Id";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // ProductForm
             // 
@@ -261,8 +249,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mNDbTestContextDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agoraSystemDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -277,7 +265,6 @@
         private System.Windows.Forms.TextBox textBoxProductPrize;
         private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Label labelPrize;
-        private System.Windows.Forms.Button buttonDeleteDodavatel;
         private System.Windows.Forms.Button buttonNewDodavatel;
         private System.Windows.Forms.DataGridView dataGridViewProduct;
         private System.Windows.Forms.DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
@@ -286,12 +273,17 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dodavatelIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button buttonDeleteProduct;
         private System.Windows.Forms.Button buttonNewProduct;
-        private MNDbTestContextDataSet mNDbTestContextDataSet;
-        private System.Windows.Forms.BindingSource productsBindingSource;
-        private MNDbTestContextDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
+
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private AgoraSystemDataSet agoraSystemDataSet;
+        private System.Windows.Forms.BindingSource productsBindingSource;
+        private AgoraSystemDataSetTableAdapters.ProductsTableAdapter productsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
     }
 }

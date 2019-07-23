@@ -15,9 +15,7 @@ namespace WindowsFormsApp2
         
     {
         DbTestContext dbtc = new DbTestContext();
-        OrderItem orderItem = new OrderItem();
-        Order order = new Order();
-        List<OrderItem> oiL = new List<OrderItem>();
+        Order Order;
 
         public OrderForm()
         {
@@ -49,13 +47,18 @@ namespace WindowsFormsApp2
         {
             try
             {
+                OrderItem orderItem = new OrderItem();
                 orderItem.Quantity = int.Parse(textQuantity.Text);
                 orderItem.Product = (Product)comboBoxProducts.SelectedItem;
+                orderItem.Order = Order;
+                orderItem.ItemName = orderItem.Product.Name;
+                orderItem.ItemPrize = orderItem.Product.Prize * double.Parse(textQuantity.Text); 
+                label4.Text = orderItem.ItemName;
                 dbtc.OrderItem.Add(orderItem);
                 dbtc.SaveChanges();
-                this.orderItemsTableAdapter.Fill(this.mNDbTestContextDataSet.OrderItems);
 
                 MessageBox.Show("Záznam byl přidán do databáze");
+                this.orderItemsTableAdapter.Fill(this.agoraSystemDataSet1.OrderItems);
 
             }
             catch (Exception)
@@ -67,28 +70,28 @@ namespace WindowsFormsApp2
 
 private void buttonSendOrder_Click(object sender, EventArgs e)
         {
-            //var DotazMax = ltscdc.OrderItems.Max(OI => OI.Order_Id);
-            //var Dotaz = ltscdc.OrderItems.Where(OI => OI.Order_Id == DotazMax ).Sum(OI => OI.ItemPrize);
             MessageBox.Show("Order was save to system");
             comboBoxProducts.Enabled = false;
             textQuantity.Enabled = false;
-            //labelProduct.Text = Dotaz.ToString(); 
         }
 
         private void OrderForm_Load(object sender, EventArgs e)
         {
-            // TODO: Tento řádek načte data do tabulky 'mNDbTestContextDataSet.OrderItems'. Můžete jej přesunout nebo jej odstranit podle potřeby.
-            this.orderItemsTableAdapter.Fill(this.mNDbTestContextDataSet.OrderItems);
+            // TODO: Tento řádek načte data do tabulky 'agoraSystemDataSet1.OrderItems'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.orderItemsTableAdapter.Fill(this.agoraSystemDataSet1.OrderItems);
+
         }
 
         private void buttonNewOrder_Click(object sender, EventArgs e)
         {
             try
             {
+                Order order = new Order();
                 comboBoxProducts.Enabled = true;
                 textQuantity.Enabled = true;
                 order.DateTime = DateTime.Now;
                 dbtc.Order.Add(order);
+                this.Order = order;
                 dbtc.SaveChanges();   
             }
             catch (Exception)
@@ -115,7 +118,7 @@ private void buttonSendOrder_Click(object sender, EventArgs e)
         {
             try
             {
-                this.orderItemsTableAdapter.Fill(this.mNDbTestContextDataSet.OrderItems);
+                this.orderItemsTableAdapter.Fill(this.agoraSystemDataSet1.OrderItems);
             }
             catch (System.Exception ex)
             {
@@ -125,21 +128,14 @@ private void buttonSendOrder_Click(object sender, EventArgs e)
 
         private void buttonDeleteOrderItem_Click(object sender, EventArgs e)
         {
-            //try
-            //{
-            oiL = dbtc.OrderItem.ToList();
+            List<OrderItem> ListOrderItem = dbtc.OrderItem.ToList<OrderItem>();
             int index = dataGridViewOrderItem.CurrentRow.Index;
-                //OrderItem oi = oiL.ElementAt(index);
-                labelProduct.Text = index.ToString();
-                //dbtc.OrderItem.Remove(oi);
-                //MessageBox.Show("Order item was deleted", "Delete");
-                //dbtc.SaveChanges();
-                //this.orderItemsTableAdapter.Fill(this.dataOrderItem.OrderItems);
-        //}
-            //catch (Exception)
-            //{
-            //    MessageBox.Show("Problem with deleting order item", "Delete");
-            //}
-}
+            OrderItem orderItem = ListOrderItem.ElementAt(index);
+            dbtc.OrderItem.Remove(orderItem);
+            MessageBox.Show("Dodavatel was deleted", "Delete");
+            dbtc.SaveChanges();
+            this.orderItemsTableAdapter.Fill(this.agoraSystemDataSet1.OrderItems);
+
+        }
     }
 }

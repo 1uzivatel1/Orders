@@ -24,6 +24,8 @@ namespace WindowsFormsApp2
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            // TODO: Tento řádek načte data do tabulky 'agoraSystemDataSet2.Dodavatels'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.dodavatelsTableAdapter.Fill(this.agoraSystemDataSet2.Dodavatels);
 
         }
 
@@ -47,12 +49,15 @@ namespace WindowsFormsApp2
             Close();
 
         }
-
-        private void buttonDeleteFromDatabase_Click(object sender, EventArgs e)
+        private void DeleteProduct_Click(object sender, EventArgs e)
         {
-
-
+            List<Dodavatel> ListDodavatel = dbtc.Dodavatel.ToList<Dodavatel>();
+            int index = dataGridView1.CurrentRow.Index;
+            Dodavatel dodavatel = ListDodavatel.ElementAt(index);
+            dbtc.Dodavatel.Remove(dodavatel);
+            MessageBox.Show("Dodavatel was deleted", "Delete");
+            dbtc.SaveChanges();
+            this.dodavatelsTableAdapter.Fill(this.agoraSystemDataSet2.Dodavatels);
         }
-
     }
 }

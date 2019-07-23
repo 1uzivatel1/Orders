@@ -7,13 +7,13 @@ namespace WindowsFormsApp2.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.3.0-preview5-19254-05")]
-    public sealed partial class MN : IMigrationMetadata
+    public sealed partial class xxx1 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(MN));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(xxx1));
         
         string IMigrationMetadata.Id
         {
-            get { return "201907180709160_MN"; }
+            get { return "201907232235545_xxx1"; }
         }
         
         string IMigrationMetadata.Source

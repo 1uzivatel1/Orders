@@ -11,11 +11,8 @@ namespace WindowsFormsApp2
 {
     class DbTestContext:DbContext
     {
-        public DbTestContext()
-        {
-            
-            string cs = ConfigurationManager.ConnectionStrings["CS"].ConnectionString;
-            SqlConnection con = new SqlConnection(cs);
+        public DbTestContext():base("CS")
+        {           
            
         }
 
@@ -27,8 +24,22 @@ namespace WindowsFormsApp2
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<OrderItem>()
+            .HasOptional<Product>(s => s.Product)
+            .WithMany()
+            .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<OrderItem>()
+            .HasOptional<Order>(s => s.Order)
+            .WithMany()
+            .WillCascadeOnDelete(true);
+
+            modelBuilder.Entity<Product>()
+            .HasOptional<Dodavatel>(s => s.Dodavatel)
+            .WithMany()
+            .WillCascadeOnDelete(true);
         }
 
-            //<add name = "WindowsFormsApp2.Properties.Settings.WindowsFormsApp2_DbTestContextConnectionString"
+
     }
 }

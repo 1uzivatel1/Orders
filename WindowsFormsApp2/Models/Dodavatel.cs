@@ -11,6 +11,7 @@ namespace WindowsFormsApp2
     [Table("Dodavatels")]
     class Dodavatel
     {
+
         [Key]
         public int Id { get; set; }
         [Required]
@@ -23,6 +24,6 @@ namespace WindowsFormsApp2
         [Required]
         [EmailAddress(ErrorMessage = "Nesprávný formát emailové adresy")]
         public string Email { get; set; }
-        public virtual List<Product> Produkts { get; set; }
+
     }
 }

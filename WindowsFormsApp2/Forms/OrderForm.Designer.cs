@@ -40,17 +40,22 @@
             this.buttonAddToOrder = new System.Windows.Forms.Button();
             this.buttonNewOrder = new System.Windows.Forms.Button();
             this.dataGridViewOrderItem = new System.Windows.Forms.DataGridView();
-            this.orderItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mNDbTestContextDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mNDbTestContextDataSet = new WindowsFormsApp2.MNDbTestContextDataSet();
             this.radioButtonLastOrder = new System.Windows.Forms.RadioButton();
             this.radioButtonAll = new System.Windows.Forms.RadioButton();
-            this.orderItemsTableAdapter = new WindowsFormsApp2.MNDbTestContextDataSetTableAdapters.OrderItemsTableAdapter();
+            this.agoraSystemDataSet1 = new WindowsFormsApp2.AgoraSystemDataSet1();
+            this.orderItemsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.orderItemsTableAdapter = new WindowsFormsApp2.AgoraSystemDataSet1TableAdapters.OrderItemsTableAdapter();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agoraSystemDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderItemsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mNDbTestContextDataSetBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mNDbTestContextDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // labelProduct
@@ -167,26 +172,21 @@
             // 
             // dataGridViewOrderItem
             // 
+            this.dataGridViewOrderItem.AutoGenerateColumns = false;
             this.dataGridViewOrderItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewOrderItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            this.dataGridViewOrderItem.DataSource = this.orderItemsBindingSource;
             this.dataGridViewOrderItem.Location = new System.Drawing.Point(25, 218);
             this.dataGridViewOrderItem.Name = "dataGridViewOrderItem";
             this.dataGridViewOrderItem.Size = new System.Drawing.Size(760, 171);
             this.dataGridViewOrderItem.TabIndex = 3;
-            // 
-            // orderItemsBindingSource
-            // 
-            this.orderItemsBindingSource.DataMember = "OrderItems";
-            this.orderItemsBindingSource.DataSource = this.mNDbTestContextDataSetBindingSource;
-            // 
-            // mNDbTestContextDataSetBindingSource
-            // 
-            this.mNDbTestContextDataSetBindingSource.DataSource = this.mNDbTestContextDataSet;
-            this.mNDbTestContextDataSetBindingSource.Position = 0;
-            // 
-            // mNDbTestContextDataSet
-            // 
-            this.mNDbTestContextDataSet.DataSetName = "MNDbTestContextDataSet";
-            this.mNDbTestContextDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // radioButtonLastOrder
             // 
@@ -212,9 +212,62 @@
             this.radioButtonAll.UseVisualStyleBackColor = true;
             this.radioButtonAll.CheckedChanged += new System.EventHandler(this.radioButtonAll_CheckedChanged);
             // 
+            // agoraSystemDataSet1
+            // 
+            this.agoraSystemDataSet1.DataSetName = "AgoraSystemDataSet1";
+            this.agoraSystemDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // orderItemsBindingSource
+            // 
+            this.orderItemsBindingSource.DataMember = "OrderItems";
+            this.orderItemsBindingSource.DataSource = this.agoraSystemDataSet1;
+            // 
             // orderItemsTableAdapter
             // 
             this.orderItemsTableAdapter.ClearBeforeFill = true;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "Id";
+            this.dataGridViewTextBoxColumn1.HeaderText = "Id";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "ItemName";
+            this.dataGridViewTextBoxColumn2.HeaderText = "ItemName";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "Quantity";
+            this.dataGridViewTextBoxColumn3.HeaderText = "Quantity";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "ItemPrize";
+            this.dataGridViewTextBoxColumn4.HeaderText = "ItemPrize";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Stredisko";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Stredisko";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Product_Id";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Product_Id";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "Order_Id";
+            this.dataGridViewTextBoxColumn7.HeaderText = "Order_Id";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
             // OrderForm
             // 
@@ -236,9 +289,8 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOrderItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.agoraSystemDataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.orderItemsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mNDbTestContextDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mNDbTestContextDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,9 +317,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn orderIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.RadioButton radioButtonLastOrder;
         private System.Windows.Forms.RadioButton radioButtonAll;
-        private System.Windows.Forms.BindingSource mNDbTestContextDataSetBindingSource;
-        private MNDbTestContextDataSet mNDbTestContextDataSet;
+        private AgoraSystemDataSet1 agoraSystemDataSet1;
         private System.Windows.Forms.BindingSource orderItemsBindingSource;
-        private MNDbTestContextDataSetTableAdapters.OrderItemsTableAdapter orderItemsTableAdapter;
+        private AgoraSystemDataSet1TableAdapters.OrderItemsTableAdapter orderItemsTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }

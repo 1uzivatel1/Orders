@@ -14,7 +14,7 @@ namespace WindowsFormsApp2
     {
         DbTestContext dbtc = new DbTestContext();
         OrderForm nd;
-        Product product = new Product();
+
         List<Product> Lp = new List<Product>();
 
 
@@ -26,9 +26,9 @@ namespace WindowsFormsApp2
 
         private void NewProduct_Load(object sender, EventArgs e)
         {
-            // TODO: Tento řádek načte data do tabulky 'mNDbTestContextDataSet.Products'. Můžete jej přesunout nebo jej odstranit podle potřeby.
-            this.productsTableAdapter.Fill(this.mNDbTestContextDataSet.Products);
- 
+            // TODO: Tento řádek načte data do tabulky 'agoraSystemDataSet.Products'. Můžete jej přesunout nebo jej odstranit podle potřeby.
+            this.productsTableAdapter.Fill(this.agoraSystemDataSet.Products);
+
             try
             {
 
@@ -47,14 +47,13 @@ namespace WindowsFormsApp2
         {
             try
             {
+                Product product = new Product();
                 product.Name = textBoxProductName.Text;
                 product.Prize = double.Parse(textBoxProductPrize.Text);
                 product.Dodavatel = (Dodavatel)comboBoxPDodavatel.SelectedItem;
                 dbtc.Product.Add(product);
                 dbtc.SaveChanges();
-                productsTableAdapter.Fill(this.mNDbTestContextDataSet.Products);
                 MessageBox.Show("Záznam byl přidán do databáze");
-                productsTableAdapter.Fill(this.mNDbTestContextDataSet.Products);
             }
             catch (Exception)
             {
@@ -112,20 +111,14 @@ namespace WindowsFormsApp2
 
         private void buttonDeleteProduct_Click(object sender, EventArgs e)
         {
-            try
-            {
-            Lp = dbtc.Product.ToList();
+
+            List<Product> ListProducts = dbtc.Product.ToList<Product>();
             int index = dataGridViewProduct.CurrentRow.Index;
-            Product p = Lp.ElementAt(index);
-            dbtc.Product.Remove(p);
+            Product product = ListProducts.ElementAt(index);
+            dbtc.Product.Remove(product);
             MessageBox.Show("Product was deleted", "Delete");
             dbtc.SaveChanges();
-            //this.productsTableAdapter.Fill(this.mNDbTestContextDataSet.Products);
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Problem with deleting product", "Delete");
-            }
+            this.productsTableAdapter.Fill(this.agoraSystemDataSet.Products);
 
         }
     }
