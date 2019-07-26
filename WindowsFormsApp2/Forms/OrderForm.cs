@@ -53,7 +53,6 @@ namespace WindowsFormsApp2
                 orderItem.Order = Order;
                 orderItem.ItemName = orderItem.Product.Name;
                 orderItem.ItemPrize = orderItem.Product.Prize * double.Parse(textQuantity.Text); 
-                label4.Text = orderItem.ItemName;
                 dbtc.OrderItem.Add(orderItem);
                 dbtc.SaveChanges();
 
@@ -135,6 +134,7 @@ private void buttonSendOrder_Click(object sender, EventArgs e)
             MessageBox.Show("Dodavatel was deleted", "Delete");
             dbtc.SaveChanges();
             this.orderItemsTableAdapter.Fill(this.agoraSystemDataSet1.OrderItems);
+            
 
         }
     }

@@ -84,20 +84,6 @@ namespace WindowsFormsApp2
             }
         }
 
-        private void buttonDeleteDodavatel_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                dbtc.Dodavatel.Remove((Dodavatel)comboBoxPDodavatel.SelectedItem);
-                dbtc.SaveChanges();
-                MessageBox.Show("Záznam byl odebran z databáze");
-            }
-            catch (Exception)
-            {
-                MessageBox.Show("Něco se nepodařilo");
-            }
-        }
-
         private void buttonNewProduct_Click(object sender, EventArgs e)
         {
             buttonAddProduct.Enabled = true;

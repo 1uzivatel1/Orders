@@ -24,8 +24,7 @@ namespace WindowsFormsApp2
         public int Stredisko { get; set; }
         public virtual Product Product { get; set; }
         public virtual Order Order { get; set; }
-        private string itemName;
-        private double itemPrize;
+
 
     }
 }
